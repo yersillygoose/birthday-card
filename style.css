@@ -12,7 +12,7 @@ body {
 
 .card{
     /*border: 1px solid white;*/
-    width: 640px;
+    /* width: 640px;
     height: 400px;
     position: absolute;
     margin: auto;
@@ -22,7 +22,22 @@ body {
     bottom: 0;
     -webkit-perspective: 1200px;
     perspective: 1200px;
-    transform: 1s;
+    transform: 1s; */
+
+    /* Change width to be responsive */
+    width: 90vw;            /* Uses 90% of the screen width */
+    max-width: 640px;       /* Prevents it from getting too huge on desktop */
+    height: 60vw;           /* Keeps a consistent aspect ratio */
+    max-height: 400px;      /* Matches your original height limit */
+    
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    perspective: 1200px;
+    transition: 1s;         /* Fixed 'transform' to 'transition' for smoothness */
 }
 
 .card:hover{
@@ -203,43 +218,17 @@ body {
   background-clip: text;
 }
 
-/* Responsive adjustments for mobile */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
     .card {
-        width: 320px;  /* Reduced from 640px */
-        height: 350px; /* Adjusted height */
+        /* This shrinks everything inside the card by 30% 
+           so you don't have to reposition every element manually */
+        transform: scale(0.7); 
     }
-
-    .outside p {
-        font-size: 16px; /* Smaller text for mobile */
-        letter-spacing: 3px;
-    }
-
-    /* Adjust the cake size for the smaller card */
-    .top-layer, .middle-layer, .bottom-layer {
-        width: 140px; /* Reduced from 240px */
-        height: 60px;
-    }
-
-    .candle {
-        bottom: 155px; /* Re-position candle for shorter cake */
-    }
-
-    /* Adjust the numbers "29" */
-    .striped-number-two {
-        font-size: 50px;
-        margin-left: 55px;
-        margin-top: 20px;
-    }
-
-    .striped-number-nine {
-        font-size: 50px;
-        margin-left: 95px;
-        margin-top: -62px;
-    }
-
-    .inside p {
-        font-size: 18px;
-        line-height: 2;
+    
+    .card:hover {
+        /* Maintains the scale while adding your hover tilt */
+        transform: scale(0.7) rotate(-5deg);
     }
 }
+
+
