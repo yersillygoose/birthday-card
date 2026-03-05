@@ -202,3 +202,44 @@ body {
   -webkit-background-clip: text; /* For Safari/older Chrome */
   background-clip: text;
 }
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 700px) {
+    .card {
+        width: 320px;  /* Reduced from 640px */
+        height: 350px; /* Adjusted height */
+    }
+
+    .outside p {
+        font-size: 16px; /* Smaller text for mobile */
+        letter-spacing: 3px;
+    }
+
+    /* Adjust the cake size for the smaller card */
+    .top-layer, .middle-layer, .bottom-layer {
+        width: 140px; /* Reduced from 240px */
+        height: 60px;
+    }
+
+    .candle {
+        bottom: 155px; /* Re-position candle for shorter cake */
+    }
+
+    /* Adjust the numbers "29" */
+    .striped-number-two {
+        font-size: 50px;
+        margin-left: 55px;
+        margin-top: 20px;
+    }
+
+    .striped-number-nine {
+        font-size: 50px;
+        margin-left: 95px;
+        margin-top: -62px;
+    }
+
+    .inside p {
+        font-size: 18px;
+        line-height: 2;
+    }
+}
