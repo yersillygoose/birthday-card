@@ -6,46 +6,31 @@
 }
 
 body {
-    background-color: #272757;
-    /* baby blue #89CFF0 */
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #239ac2;
 }
 
 .card{
-    /*border: 1px solid white;*/
-    /* width: 640px;
-    height: 400px;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    -webkit-perspective: 1200px;
-    perspective: 1200px;
-    transform: 1s; */
+ 
+  position: relative;
+  width: 640px;
+  height: 400px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 1s;
 
-    /* Change width to be responsive */
-    width: 90vw;            /* Uses 90% of the screen width */
-    max-width: 640px;       /* Prevents it from getting too huge on desktop */
-    height: 60vw;           /* Keeps a consistent aspect ratio */
-    max-height: 400px;      /* Matches your original height limit */
-    
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    perspective: 1200px;
-    transition: 1s;         /* Fixed 'transform' to 'transition' for smoothness */
 }
 
 .card:hover{
-    transform: rotate(-5deg);
+    transform: perspective(2500px) rotate(5deg);
 }
 
 .card:hover .outside{
-    transform: rotateY(-130deg);
+    transform: rotateY(-160deg);
 }
 
 .outside,
@@ -218,17 +203,74 @@ body {
   background-clip: text;
 }
 
-@media screen and (max-width: 650px) {
-    .card {
-        /* This shrinks everything inside the card by 30% 
-           so you don't have to reposition every element manually */
-        transform: scale(0.7); 
-    }
-    
-    .card:hover {
-        /* Maintains the scale while adding your hover tilt */
-        transform: scale(0.7) rotate(-5deg);
-    }
+.striped-number-two:before{
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    background-color: #ffa500;
+    border-radius: 0 50% 50% 50%;
+    bottom: 291px;
+    transform: rotate(45deg);
+    left: 125px;
 }
 
+.striped-number-nine:before{
+    content: "";
+    position: absolute;
+    height: 17px;
+    width: 16px;
+    background-color: #ffa500;
+    border-radius: 0 50% 50% 50%;
+    bottom: 291px;
+    transform: rotate(45deg);
+    left: 181px;
+}
 
+.cassette{
+    /* Ensures the sliding image is relative to this container */
+    position: relative; 
+    width: 50px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    /* overflow: hidden;  */
+    /* Hides the image when it slides out of view */
+}
+
+.balloons {
+  position: absolute;
+  left: 30px;
+}
+
+.balloon-1,
+.balloon-2,
+.balloon-3,
+.balloon-4 {
+  position: absolute;
+  width: 85px;
+  height: 95px;
+  border-radius: 50%;
+}
+
+.balloon-1 {
+  background-color: rgba(255, 40, 90, 0.7);
+  left: -10px;
+  top: 50px;
+}
+
+.balloon-2 {
+  background-color: rgba(9, 215, 160, 0.7);
+  left: 50px;
+  top: 20px;
+}
+
+.balloon-3 {
+  background-color: rgba(255, 186, 26, 0.7);
+  left: 110px;
+  top: 50px;
+}
+
+.balloon-4 {
+  background-color: rgba(12, 122, 159, 0.7);
+  left: 170px;
+  top: 50px;
+}
