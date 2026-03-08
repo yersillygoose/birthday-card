@@ -26,11 +26,11 @@ body {
     height: 400px;
     position: absolute;
     /* position: relative; */
-    margin: auto;
+    /* margin: auto;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;
+    bottom: 0; */
     transform-style: preserve-3d;
     transform: perspective(2500px);
     transition: 1s;
@@ -250,10 +250,11 @@ body {
 }
 
 .cassette{
-    /* Ensures the sliding image is relative to this container */
+
     position: relative; 
     width: 50px; /* Adjust as needed */
     height: 100px; /* Adjust as needed */
+
     /* overflow: hidden;  */
     /* Hides the image when it slides out of view */
 }
@@ -318,7 +319,7 @@ body {
 }
 
 .cassette {
-    /* Change to absolute to place anywhere on the screen */
+
     position: absolute; 
     
     /* Position at the top-left corner */
@@ -331,7 +332,6 @@ body {
     
     z-index: 100; /* Ensures it stays visible */
 
-    /* Add this to make it wiggle */
     animation: wiggle 2s ease-in-out infinite;
 }
 
@@ -362,15 +362,12 @@ body {
     outline: none;
 }
 
-
-Container covering the entire inner card
 .confetti-full {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allows text to be clicked */
     z-index: 0;
     overflow: hidden; /* Keeps dots inside the card */
 }
@@ -438,7 +435,7 @@ Container covering the entire inner card
         font-size: 16px;
     }
     
-    /* Optional: Scale down the cassette too */
+    /* Scale down the cassette */
     .cassette {
         width: 70px;
         height: 70px;
