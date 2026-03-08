@@ -5,6 +5,11 @@
     font-family: "Inter", sans-serif;
 }
 
+html, body {
+    touch-action: manipulation; /* Improves touch responsiveness */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS devices */
+}
+
 body {
 
     background-color: #239ac2;
@@ -12,11 +17,15 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevents horizontal scroll */
-    overflow-y: auto;   /* Allows vertical scroll if the card is too tall */
-    margin: auto;
+    /* Prevents horizontal scroll */
+    /* overflow-x: hidden;  */
+    /* Allows vertical scroll if the card is too tall */
+    /* overflow-y: auto;   */
+    margin: 0;   /* auto or 0 */
 
-    
+    /* Remove overflow: hidden to allow the card to be seen even if it overflows slightly */
+    /* overflow x and y causing the card to cut off when opened */
+    overflow: auto; /* Allows scrolling if the card is larger than the screen */
 }
 
 
@@ -32,10 +41,12 @@ body {
     top: 0;
     bottom: 0; */
     transform-style: preserve-3d;
-    transform: perspective(2500px);
+    /* transform: perspective(2500px); */
+    transform: perspective(2500px) ease-in-out;
     transition: 1s;
 
-    
+    /* Add this: allows space around the card for rotation */
+    margin: 50px;
 }
 
 .card.is-open {
@@ -58,14 +69,30 @@ body {
 .inside{
     /*left: 50.1%;*/
     background: linear-gradient(to right, #e0e0e0, #ffffff 30%);
-    line-height: 3;
+    line-height: 2.5;
     padding: 0 20px;
-    text-align: center;
+    text-align: justify;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    /* justify-content: space-around; */
+    justify-content: flex-start; /* Start content from the top */
+    /* align-items: center; */
+    align-items: flex-start; /* Align text to the left */
     left: 50%;
+    font-size: 14px;
+    
+}
+
+.inside p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Style for the signature */
+.inside p:last-child {
+    /* margin-top: 1px; */
+    font-style: italic;
+    font-weight: bold;
 }
 
 .outside{
@@ -323,7 +350,7 @@ body {
     position: absolute; 
     
     /* Position at the top-left corner */
-    top: 2vw;   /* Distance from top */
+    top: 1vw;   /* Distance from top */
     left: 2vw;  /* Distance from left */
     
     /* Make the container smaller */
@@ -426,6 +453,7 @@ body {
     .card {
         /* Scale the card down to 50% or 60% of its size */
         transform: perspective(2500px) scale(0.5);
+        /* margin: 20px; */
     }
     
     /* Make the mute button smaller on phones */
