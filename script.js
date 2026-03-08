@@ -58,3 +58,34 @@ cardElement.addEventListener("click", (e) => {
 });
 
 
+const audio = document.getElementById("birthday-audio");
+const muteBtn = document.getElementById("mute-btn");
+
+muteBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevents the card flip from triggering
+    
+    if (audio.muted) {
+        audio.muted = false;
+        muteBtn.textContent = "🔊"; // Set icon to Sound ON
+    } else {
+        audio.muted = true;
+        muteBtn.textContent = "🔇"; // Set icon to Sound OFF
+    }
+});
+
+// Optional: Ensure audio starts playing on the first click anywhere
+document.body.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().catch(e => console.log("Playback failed"));
+    }
+}, { once: true });
+
+const card = document.querySelector(".card");
+
+card.addEventListener("click", (e) => {
+    // Toggle the class that holds our rotation/animation logic
+    card.classList.toggle("is-open");
+    
+    // e.stopPropagation() is already in your other click listeners, 
+    // keep it here too if you have multiple nested clicks!
+});

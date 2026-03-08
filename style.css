@@ -39,11 +39,23 @@ body {
 
 .card:hover{
     /* transform: rotate(-5deg); */
-    transform: perspective(2500px) rotate(5deg);
+    /* transform: perspective(2500px) rotate(5deg); */
 }
 
 .card:hover .outside{
     /* transform: rotateY(-130deg); */
+    /* transform: rotateY(-160deg); */
+}
+
+/* Remove the .card:hover block entirely */
+
+/* Add this new class instead */
+.card.is-open {
+    transform: perspective(2500px) rotate(5deg);
+}
+
+/* Also update the flap animation to look for the new class */
+.card.is-open .outside {
     transform: rotateY(-160deg);
 }
 
@@ -397,3 +409,15 @@ Container covering the entire inner card
 .dot:nth-child(20) { top: 95%; left: 80%; background: #6a4c93; }
 
 
+#mute-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: white;
+    border: 2px solid #239ac2;
+    border-radius: 50%;
+}
