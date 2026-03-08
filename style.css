@@ -12,6 +12,7 @@ body {
     justify-content: center;
     height: 100vh;
 
+    overflow: hidden;       /* Prevents scrolling on mobile */
 }
 
 .card{
@@ -33,6 +34,7 @@ body {
     transform: perspective(2500px);
     transition: 1s;
 
+    
 }
 
 .card:hover{
