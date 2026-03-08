@@ -406,12 +406,13 @@ Container covering the entire inner card
 
 
 #mute-btn {
-    /* Change position from absolute to fixed */
-    position: fixed; 
+    position: absolute; /* Keeps it positioned relative to the screen */
     
-    /* These values pin it to the corner of the browser window */
-    top: 20px;
-    right: 20px;
+    /* Align with the same left position as the cassette */
+    left: 2vw;  
+    
+    /* Position below the cassette container (100px height + margin) */
+    top: 130px; 
     
     z-index: 1000;
     padding: 10px;
@@ -432,10 +433,9 @@ Container covering the entire inner card
     
     /* Make the mute button smaller on phones */
     #mute-btn {
+        width: 40px;
+        height: 40px;
         font-size: 16px;
-        padding: 8px;
-        top: 10px;
-        right: 10px;
     }
     
     /* Optional: Scale down the cassette too */
