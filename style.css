@@ -6,14 +6,19 @@
 }
 
 body {
+
     background-color: #239ac2;
-    /* midnight blue #272757 */
+    display: flex; /* to ensure centering works well */
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    overflow-y: auto;   /* Allows vertical scroll if the card is too tall */
+    margin: auto;
 
-    overflow: hidden;       /* Prevents scrolling on mobile */
+    
 }
+
 
 .card{
     /*border: 1px solid white;*/
@@ -21,15 +26,11 @@ body {
     height: 400px;
     position: absolute;
     /* position: relative; */
-    cursor: pointer;
     margin: auto;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    /* -webkit-perspective: 1200px;
-    perspective: 1200px;
-    transform: 1s; */
     transform-style: preserve-3d;
     transform: perspective(2500px);
     transition: 1s;
@@ -37,24 +38,10 @@ body {
     
 }
 
-.card:hover{
-    /* transform: rotate(-5deg); */
-    /* transform: perspective(2500px) rotate(5deg); */
-}
-
-.card:hover .outside{
-    /* transform: rotateY(-130deg); */
-    /* transform: rotateY(-160deg); */
-}
-
-/* Remove the .card:hover block entirely */
-
-/* Add this new class instead */
 .card.is-open {
     transform: perspective(2500px) rotate(5deg);
 }
 
-/* Also update the flap animation to look for the new class */
 .card.is-open .outside {
     transform: rotateY(-160deg);
 }
@@ -110,9 +97,18 @@ body {
 }
 
 .cake{
-    width: 100%;
+    /* width: 100%;
+    position: absolute;
+    bottom: 30px; */
+
+    /* Set a fixed width instead of 100% to keep the cake from resizing */
+    width: 240px; 
     position: absolute;
     bottom: 30px;
+    /* Center it by setting left/right to 0 */
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .top-layer,
@@ -410,9 +406,13 @@ Container covering the entire inner card
 
 
 #mute-btn {
-    position: absolute;
+    /* Change position from absolute to fixed */
+    position: fixed; 
+    
+    /* These values pin it to the corner of the browser window */
     top: 20px;
     right: 20px;
+    
     z-index: 1000;
     padding: 10px;
     font-size: 20px;
@@ -420,4 +420,27 @@ Container covering the entire inner card
     background: white;
     border: 2px solid #239ac2;
     border-radius: 50%;
+}
+
+
+/* Responsive adjustments for phones */
+@media screen and (max-width: 700px) {
+    .card {
+        /* Scale the card down to 50% or 60% of its size */
+        transform: perspective(2500px) scale(0.5);
+    }
+    
+    /* Make the mute button smaller on phones */
+    #mute-btn {
+        font-size: 16px;
+        padding: 8px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    /* Optional: Scale down the cassette too */
+    .cassette {
+        width: 70px;
+        height: 70px;
+    }
 }
